@@ -58,6 +58,24 @@
       // 🧠 Implement a `getAllReversed` method which returns the ints in reverse order
       // ❗ WARNING: except for `getAllReversed`, methods must respect the order of the integers
       // ❗ WARNING: note that none of the methods actually mutate the `ints` property
+     
+      constructor(...args) {
+        this.args = Integers
+        this.ints = args
+      }
+       
+      getAll(...args) {
+      return this.ints
+      }
+
+      getEvens (...args) {
+       
+      return this.ints.filter((num) => {
+      return num %2 ===0;
+       })
+      }
+
+
 
     }
 
