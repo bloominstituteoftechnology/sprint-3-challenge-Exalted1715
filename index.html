@@ -69,13 +69,44 @@
       }
 
       getEvens (...args) {
-       
       return this.ints.filter((num) => {
-      return num %2 ===0;
+      return num % 2 === 0;
        })
       }
 
+      getNegatives(...args){
+        return  this.ints.filter((num) => {
+          return num < 0
+        })
+      }
 
+      getAllSquared(...args){
+        let squared = this.ints.map((num) => {
+          return num * num
+        })
+        return squared
+      }
+
+      pop(...args){
+        let lastNumber = this.ints.pop((num) => {
+          return num
+        })
+        return lastNumber
+      } 
+
+      push(...args){
+        this.ints.push(...args)
+        return this.ints  
+      }
+
+      getEveryNth(n){
+
+      const result = []
+      for (let index = 0; index < this.ints.length; index += n) {
+        result.push(this.ints[index])
+      }
+       return result 
+      } 
 
     }
 
