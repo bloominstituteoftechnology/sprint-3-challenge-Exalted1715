@@ -108,6 +108,11 @@
        return result 
       } 
 
+      getAllReversed(...args){
+        const reversedArray = this.ints.reverse()
+        return reversedArray
+      }
+      
     }
 
     // 👉 CHALLENGE 2 NerfGun
@@ -125,6 +130,37 @@
       //      * When engaging the safety, return "Safety enabled!"
       //      * When disengaging the safety, return "Safety disabled!"
       // 🌟 HINT: instances need to keep track of their maximum capacity as well as their current capacity
+      constructor(projectiles) {
+        this.projectiles = []
+        this.safetyOn = true
+       
+
+      }
+
+      shoot(){
+       
+        if (this.projectiles > 0 && this.safetyOn !== true) {
+          let index = this.projectiles[index]
+          this.projectiles[index] - 1
+          return "Bang!"
+        } else if (this.projectiles = 0 || this.safetyOn === true){
+          return "Click!"
+        }
+      }
+
+      reload(num){
+        if (typeof number !== 'number' || number <= 0) {
+          return "Error reloading!"
+        } 
+
+        let currentCapacity = this.projectiles.length
+
+        if (currentCapacity >= this.projectiles.length) {
+         return `${currentCapacity} projectiles left!`;
+        }
+      }
+
+      
 
     }
 
