@@ -130,52 +130,53 @@
       //      * When engaging the safety, return "Safety enabled!"
       //      * When disengaging the safety, return "Safety disabled!"
       // 🌟 HINT: instances need to keep track of their maximum capacity as well as their current capacity
-      constructor(projectiles) {
-        this.projectiles = []
-        this.safetyOn = true
-      
 
+      constructor(projectiles) {
+        this.projectiles = projectiles
+        this.safetyOn = true
+        this.currentProjectiles = projectiles
+        
       }
 
       shoot(){
        
-        if (this.projectiles > 0 && this.safetyOn !== true) {
-          let index = this.projectiles[index]
-          this.projectiles[index] - 1
+
+        if (this.currentProjectiles > 0 && this.safetyOn !== true) {
+          this.currentProjectiles -= 1
           return "Bang!"
-        } else if (this.projectiles = 0 || this.safetyOn === true) {
-          return "Click!"
+        } else  {
+          return "Click!" //correct
         }
       }
 
       reload(number){
         
-        if (typeof number === 'number' || number > 0) {
-      return "Error reloading!";
-      }
-    
-      
+        if (typeof number !== 'number' || number <= 0) {
+        return "Error reloading!"; // correct
+       }
 
-      if(number <= this.projectiles) {
-        number += this.projectiles
-        return `${this.projectiles} projectiles left!`
-      } else if (number > this.projectiles) {
-        number = this.projectiles 
-        return `${this.projectiles} projectiles left!`
+       const emptySlots = this.projectiles - this.currentProjectiles
+
+      if (number >= emptySlots) {
+        this.currentProjectiles = this.projectiles
+        return `${this.currentProjectiles} projectiles left!`
+      } else if (number < emptySlots){
+        this.currentProjectiles = this.currentProjectiles + number  
+        return `${this.currentProjectiles} projectiles left!`
       }
     }
     
   
   toggleSafety() {
-    this.safetyOn = !this.safetyOn;
-    if (this.safetyOn === true) {
+    this.safetyOn = !this.safetyOn 
+    if (this.safetyOn) {
       return "Safety enabled!";
     } else {
       return "Safety disabled!";
     }
+   }
+   
   }
-
-    }
 
     // 👉 CHALLENGE 3 EBook
     class EBook {
@@ -193,13 +194,14 @@
       //    ebook.next() // returns null
       // 🌟 HINT: remember about the `slice` method which strings and arrays have
       // ❗ Feel free to implement `back`, although this is not required nor graded
+
     constructor(bookText, charactersPerPage) {
     this.bookText = bookText;
     this.charactersPerPage = charactersPerPage;
     this.currentPage = 0;
-  }
+    }
 
-  next() {
+    next() {
     if (this.currentPage * this.charactersPerPage >= this.bookText.length) {
       return null;
     }
@@ -210,7 +212,7 @@
 
     this.currentPage++; // Move to the next page
     return nextPage;
-  }
+     }
 
     }
 
