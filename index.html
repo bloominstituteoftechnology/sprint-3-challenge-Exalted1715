@@ -275,6 +275,21 @@
         return `${aliveAnts} ants starting work!`;
     }
 
+    feed(antNames){
+      const foundAnts = this.ants.filter(ant => ant.name === antNames);
+
+if (foundAnts.length === 0) {
+    return `${antNames} not found!`;
+}
+
+foundAnts.forEach(ant => {
+    ant.health += 15;
+});
+
+return "Yum!";
+}
+
+
     }
 
     // 🧪 TESTS, do not make any changes below this line ===================
