@@ -249,6 +249,32 @@
       // 👉 HINT: if you are not feeling confident with map and filter, solve the problem with for loops,
       //      and with the piece of mind of all tests passing, refactor to use map/filter
 
+      constructor(...antNames){
+        this.ants = antNames.map(name => ({ 
+          name, health: 100 }))
+      }
+
+      work() {
+        if (this.ants.length === 0) {
+            return "No ants here. Did you work them to death?"
+        }
+
+        let aliveAnts = this.ants.length
+
+        for (let i = 0; i < this.ants.length; i++) {
+            const ant = this.ants[i]
+            ant.health -= 20
+
+          if (ant.health <= 0) {
+              this.ants.splice(i, 1)
+              i--
+                
+           }
+        }
+
+        return `${aliveAnts} ants starting work!`;
+    }
+
     }
 
     // 🧪 TESTS, do not make any changes below this line ===================
